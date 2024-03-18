@@ -1,0 +1,29 @@
+{
+  "name": "sst-turso-drizzle-bug",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "dev": "sst dev",
+    "build": "sst build",
+    "deploy": "sst deploy --stage production",
+    "db:push": "drizzle-kit push:sqlite",
+    "db:seed": "tsx src/seed.ts"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "dependencies": {
+    "@libsql/client": "^0.5.6",
+    "dotenv": "^16.4.5",
+    "drizzle-orm": "^0.30.2"
+  },
+  "devDependencies": {
+    "aws-cdk-lib": "^2.133.0",
+    "constructs": "^10.3.0",
+    "drizzle-kit": "^0.20.14",
+    "sst": "^2.41.2",
+    "tsx": "^4.7.1"
+  },
+  "packageManager": "pnpm@8.15.5+sha256.4b4efa12490e5055d59b9b9fc9438b7d581a6b7af3b5675eb5c5f447cee1a589"
+}
