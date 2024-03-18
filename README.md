@@ -39,7 +39,7 @@ Require stack:
        at async file:///Users/joostschuur/Code/Playmob/_Tests/sst-turso-drizzle-bug/node_modules/.pnpm/sst@2.41.2_@aws-sdk+credential-provider-node@3.535.0/node_modules/sst/support/nodejs-runtime/index.mjs:46:15
 ```
 
-## Solution (kind of)
+## Solutions (kind of)
 
 Use [copyFiles](https://docs.sst.dev/constructs/Function#copyfiles) (via [this PR](https://github.com/sst/sst/pull/3590)) to make sure `@libsql/linux-x64-gnu` added to the production bundle:
 
@@ -50,3 +50,22 @@ app.setDefaultFunctionProps({
 ```
 
 Assumes `pnpm install -D @libsql/darwin-arm64 @libsql/linux-x64-gnu`, so that local dev also has the darwin-arm64 version for an Apple Silicon dev machine.
+
+Or better yet, just use `@libsql/client/web`, in which case you don't need to use the `copyFiles` workaround (or add platform specific dependencies to your package.json):
+
+```typescript
+import { createClient } from '@libsql/client/web';
+import { drizzle } from 'drizzle-orm/libsql';
+
+import * as schema from './schema';
+
+const authToken = process.env.TURSO_AUTH_TOKEN;
+const url = process.env.TURSO_CONNECTION_URL;
+
+const client = createClient({
+  url,
+  authToken,
+});
+
+export const db = drizzle(client, { schema });
+```

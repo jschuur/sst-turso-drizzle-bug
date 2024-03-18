@@ -13,7 +13,7 @@ export default {
   },
   stacks(app) {
     app.setDefaultFunctionProps({
-      copyFiles: [{ from: 'node_modules/@libsql/linux-x64-gnu/index.node' }],
+      // copyFiles: [{ from: 'node_modules/@libsql/linux-x64-gnu/index.node' }],
     });
     app.stack(API);
   },

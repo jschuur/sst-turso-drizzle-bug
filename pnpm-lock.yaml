@@ -16,12 +16,6 @@ dependencies:
     version: 0.30.2(@aws-sdk/client-rds-data@3.535.0)(@libsql/client@0.5.6)(kysely@0.25.0)(react@18.2.0)
 
 devDependencies:
-  '@libsql/darwin-arm64':
-    specifier: ^0.3.10
-    version: 0.3.10
-  '@libsql/linux-x64-gnu':
-    specifier: ^0.3.10
-    version: 0.3.10
   aws-cdk-lib:
     specifier: ^2.133.0
     version: 2.133.0(constructs@10.3.0)
@@ -2341,6 +2335,8 @@ packages:
     cpu: [arm64]
     os: [darwin]
     requiresBuild: true
+    dev: false
+    optional: true
 
   /@libsql/darwin-x64@0.3.10:
     resolution: {integrity: sha512-SNVN6n4qNUdMW1fJMFmx4qn4n5RnXsxjFbczpkzG/V7m/5VeTFt1chhGcrahTHCr3+K6eRJWJUEQHRGqjBwPkw==}
@@ -2403,6 +2399,8 @@ packages:
     cpu: [x64]
     os: [linux]
     requiresBuild: true
+    dev: false
+    optional: true
 
   /@libsql/linux-x64-musl@0.3.10:
     resolution: {integrity: sha512-kNmIRxomVwt9S+cLyYS497F/3gXFF4r8wW12YSBQgxG75JYft07AHVd8J7HINg+oqRkLzT0s+mVX5dM6nk68EQ==}
