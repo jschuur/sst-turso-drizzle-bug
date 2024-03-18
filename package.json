@@ -19,6 +19,8 @@
     "drizzle-orm": "^0.30.2"
   },
   "devDependencies": {
+    "@libsql/darwin-arm64": "^0.3.10",
+    "@libsql/linux-x64-gnu": "^0.3.10",
     "aws-cdk-lib": "^2.133.0",
     "constructs": "^10.3.0",
     "drizzle-kit": "^0.20.14",

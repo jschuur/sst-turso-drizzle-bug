@@ -13,7 +13,7 @@ export default {
   },
   stacks(app) {
     app.setDefaultFunctionProps({
-      runtime: 'nodejs20.x',
+      copyFiles: [{ from: 'node_modules/@libsql/linux-x64-gnu/index.node' }],
     });
     app.stack(API);
   },

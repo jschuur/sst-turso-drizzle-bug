@@ -38,3 +38,15 @@ Require stack:
        at async ModuleLoader.import (node:internal/modules/esm/loader:329:24)
        at async file:///Users/joostschuur/Code/Playmob/_Tests/sst-turso-drizzle-bug/node_modules/.pnpm/sst@2.41.2_@aws-sdk+credential-provider-node@3.535.0/node_modules/sst/support/nodejs-runtime/index.mjs:46:15
 ```
+
+## Solution (kind of)
+
+Use [copyFiles](https://docs.sst.dev/constructs/Function#copyfiles) (via [this PR](https://github.com/sst/sst/pull/3590)) to make sure `@libsql/linux-x64-gnu` added to the production bundle:
+
+```typescript
+app.setDefaultFunctionProps({
+  copyFiles: [{ from: 'node_modules/@libsql/linux-x64-gnu/index.node' }],
+});
+```
+
+Assumes `pnpm install -D @libsql/darwin-arm64 @libsql/linux-x64-gnu`, so that local dev also has the darwin-arm64 version for an Apple Silicon dev machine.

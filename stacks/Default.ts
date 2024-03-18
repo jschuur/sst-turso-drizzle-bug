@@ -9,8 +9,8 @@ export function API({ stack }: StackContext) {
         function: {
           handler: 'src/users.handler',
           environment: {
-            TURSO_CONNECTION_URL: process.env.DATABASE_URL,
-            DATABASE_TOKEN: process.env.DATABASE_TOKEN,
+            TURSO_CONNECTION_URL: process.env.TURSO_CONNECTION_URL,
+            TURSO_AUTH_TOKEN: process.env.TURSO_AUTH_TOKEN,
           },
         },
       },
