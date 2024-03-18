@@ -10,6 +10,7 @@ During SST deployment (or the local dev Live Lambda), it produces an `Error: Can
 - Works if you downgrade to @libsql/client 0.3.3, however now there is a Next.js/libsql error and it won't build on Vercel with the latest Next.js without triggering [this error](https://github.com/tursodatabase/libsql-client-ts/issues/142) which was [fixed](https://github.com/tursodatabase/libsql-client-ts/pull/160) in a more recent version of @libsql/client (which triggers the SST error).
 - Using just Next.js 14.1.3 wit @libsql/client 0.5.6 works fine, so it's something to do with the combination of SST and @libsql/client.
 - Another user ran into this issue and posted about it on the [SST Discord recently](https://discord.com/channels/933071162680958986/1210131565271580732), but I wasn't able to replicate the proposed solution of exxplicitly listing dependencies in the `sst.config.ts`.
+- When using NextjsSite, this [seems to be fixed](https://github.com/tursodatabase/libsql-client-ts/issues/186) by changign the lambda architecture to x86_64 and Node to 20.x, but I couldn't replicate that.
 
 ## Steps to Reproduce
 
